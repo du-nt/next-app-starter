@@ -4,7 +4,6 @@ module.exports = {
     preflight: false,
   },
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
-  important: '#__next',
   theme: {
     extend: {},
   },
