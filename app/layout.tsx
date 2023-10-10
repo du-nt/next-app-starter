@@ -1,14 +1,16 @@
-"use client";
+import { PropsWithChildren } from 'react'
+import RootProvider from '@providers/RootProvider'
+import ThemeRegistry from '@providers/ThemeRegistry'
+import { getTranslations } from 'i18n'
+import { NextIntlClientProvider } from 'next-intl'
 
-import "./globals.css";
+import './globals.css'
 
-import { PropsWithChildren } from "react";
-import { RecoilRoot } from "recoil";
-import ThemeProvider from "../providers/ThemeProvider";
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const { messages, locale, theme } = await getTranslations()
 
-export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <title>Next App Starter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,10 +19,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head>
 
       <body>
-        <RecoilRoot>
-          <ThemeProvider>{children}</ThemeProvider>
-        </RecoilRoot>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <RootProvider savedTheme={theme}>
+            <ThemeRegistry>{children}</ThemeRegistry>
+          </RootProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
-  );
+  )
 }

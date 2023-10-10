@@ -1,0 +1,14 @@
+{
+  "language": "言語",
+  "english": "英語",
+  "japanese": "日本語",
+  "loginSuccess": "ログインに成功しました",
+  "datePickerPlaceholder": "日付を選択",
+  "timePickerPlaceholder": "時間を選択",
+  "toastError": {
+    "U10001": "エラーメッセージの例"
+  },
+  "validationError": {
+    "U10004-email,password": "メールアドレスまたはパスワードに誤りがあります"
+  }
+}

@@ -1,6 +1,6 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles'
 
-import "@mui/material";
+import '@mui/material'
 
 const commonThemeOptions = {
   breakpoints: {
@@ -10,34 +10,34 @@ const commonThemeOptions = {
       tablet: 780,
       md: 900,
       lg: 1200,
-      xl: 1536,
-    },
+      xl: 1536
+    }
   },
   mixins: {
     toolbar: {
       minHeight: 56,
-      "@media (min-width: 0px)": {
-        minHeight: 56,
+      '@media (min-width: 0px)': {
+        minHeight: 56
       },
-      "@media (min-width: 600px)": {
-        minHeight: 56,
+      '@media (min-width: 600px)': {
+        minHeight: 56
       },
-      "@media (min-width: 780px)": {
-        minHeight: 64,
-      },
-    },
-  },
-};
+      '@media (min-width: 780px)': {
+        minHeight: 64
+      }
+    }
+  }
+}
 
 const lightTheme = createTheme({
-  ...commonThemeOptions,
-});
+  ...commonThemeOptions
+})
 
 const darkTheme = createTheme({
   ...commonThemeOptions,
   palette: {
-    mode: "dark",
-  },
-});
+    mode: 'dark'
+  }
+})
 
-export { lightTheme, darkTheme };
+export { lightTheme, darkTheme }

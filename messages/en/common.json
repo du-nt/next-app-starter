@@ -1,0 +1,26 @@
+{
+  "language": "Language",
+  "english": "English",
+  "japanese": "Japanese",
+  "loginSuccess": "Login successfully",
+  "datePickerPlaceholder": "Select date",
+  "timePickerPlaceholder": "Select time",
+  "toastError": {
+    "U10001": "Example error message"
+  },
+  "validationError": {
+    "U10004-email,password": "Email or password incorrect"
+  },
+  "sidebar": {
+    "home": "Home",
+    "library": "Library",
+    "history": "History",
+    "music": "Music"
+  },
+  "navigationBar": {
+    "home": "Home",
+    "library": "Library",
+    "explore": "Explore",
+    "music": "Music"
+  }
+}

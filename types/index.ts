@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -66,4 +66,18 @@ export type ValidationError = {
     fieldNames: string[]
     translationKey: string
   }
+}
+
+export type RootProviderProps = PropsWithChildren & {
+  savedTheme?: string
+}
+
+export type ThemeContextType = {
+  theme: Theme
+  setTheme: Dispatch<SetStateAction<Theme>>
+}
+
+export type InitialLoadingContextType = {
+  inittialLoading: boolean
+  setInitialLoading: Dispatch<SetStateAction<boolean>>
 }
