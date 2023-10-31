@@ -1,5 +1,6 @@
 import Const from '@constants/common'
-import { TokenBundle, ValidationError } from '@types'
+import { Locale, TokenBundle } from '@types'
+import { getCookie } from 'cookies-next'
 
 const Utils = class Utils {
   static storeTokens = (tokenBundle: TokenBundle) => {
@@ -19,27 +20,69 @@ const Utils = class Utils {
     localStorage.removeItem('accessToken')
   }
 
-  static getValidatorError = (errorCode: string) => {
-    const validatorError: ValidationError = {}
+  static getToastErrorKeys(locale: string) {
+    return Object.keys(
+      Const.TRANSLATIONS_OBJ[locale as Locale].common.toastError
+    )
+  }
 
-    Const.VALIDATOR_ERRORS.forEach((key) => {
-      const parts = key.split('-')
-      if (parts.length === 2) {
-        const errorCode = parts[0]
-        const fieldNames = parts[1].split(',')
+  static getValidationErrorKeys(locale: string) {
+    return Object.keys(
+      Const.TRANSLATIONS_OBJ[locale as Locale].common.validationError
+    )
+  }
 
-        const translationKey = `common.validationError.${key}`
+  static getValidationError = (errorCode: string | number, formValues: any) => {
+    const locale = getCookie(Const.LOCALE_COOKIE_NAME) || Const.DEFAULT_LOCALE
+    const validatorErrorKey = this.getValidationErrorKeys(locale).find(
+      (key) => key.split('-')[0] === `${errorCode}`
+    )
 
-        validatorError[errorCode] = {
-          fieldNames,
-          translationKey
-        }
+    if (!validatorErrorKey) return {}
+
+    const mixedFieldName = validatorErrorKey.split('-')[1]
+
+    if (!mixedFieldName) return {}
+
+    const fieldNames = mixedFieldName.split(',')
+
+    const validatorTranslationKey = `common.validationError.${validatorErrorKey}`
+    const validatorTranslationValues = fieldNames.reduce(
+      (acc, item) => ({ ...acc, [item]: formValues[item] }),
+      {}
+    )
+
+    return {
+      validatorTranslationKey,
+      fieldNames,
+      validatorTranslationValues
+    }
+  }
+
+  static getToastError = (errorCode: string | number, formValues: any) => {
+    const locale = getCookie(Const.LOCALE_COOKIE_NAME) || Const.DEFAULT_LOCALE
+    const toastErrorKey = this.getToastErrorKeys(locale).find(
+      (key) => key.split('-')[0] === `${errorCode}`
+    )
+
+    if (!toastErrorKey) return {}
+
+    const translationValuesKeys = toastErrorKey.split('-')[1]
+    const toastTranslationKey = `common.toastError.${toastErrorKey}`
+
+    if (!translationValuesKeys)
+      return {
+        toastTranslationKey
       }
-    })
 
-    const errorFields = validatorError[errorCode]
+    const toastTranslationValues = translationValuesKeys
+      .split(',')
+      .reduce((acc, item) => ({ ...acc, [item]: formValues[item] }), {})
 
-    return errorFields
+    return {
+      toastTranslationKey,
+      toastTranslationValues
+    }
   }
 }
 

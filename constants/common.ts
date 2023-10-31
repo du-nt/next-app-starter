@@ -95,16 +95,8 @@ class Const {
     return 'NEXT_LOCALE'
   }
 
-  static get TOAST_ERRORS() {
-    return Object.keys(en.common.toastError)
-  }
-
   static get TRANSLATIONS_OBJ() {
     return { en, ja }
-  }
-
-  static get VALIDATOR_ERRORS() {
-    return Object.keys(en.common.validationError)
   }
 }
 

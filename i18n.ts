@@ -1,4 +1,5 @@
 import Const from '@constants/common'
+import { Locale } from '@types'
 import { cookies } from 'next/headers'
 import { getRequestConfig } from 'next-intl/server'
 
@@ -11,7 +12,7 @@ export const getLocale = () => {
   const isValidLocale = Object.keys(Const.LOCALES).some((cur) => cur === lang)
 
   const locale = isValidLocale ? lang : Const.DEFAULT_LOCALE
-  const longLocale = Const.LOCALES[locale as keyof typeof Const.LOCALES]
+  const longLocale = Const.LOCALES[locale as Locale]
 
   return { locale, theme, longLocale }
 }
@@ -19,8 +20,7 @@ export const getLocale = () => {
 export const getTranslations = async () => {
   const { locale, theme } = getLocale()
 
-  const currentTranslationObj =
-    Const.TRANSLATIONS_OBJ[locale as keyof typeof Const.TRANSLATIONS_OBJ]
+  const currentTranslationObj = Const.TRANSLATIONS_OBJ[locale as Locale]
 
   const translations = await Promise.all(
     Object.entries(currentTranslationObj).map(async ([namespace]) => {

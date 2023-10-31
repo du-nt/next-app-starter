@@ -38,18 +38,18 @@ export type TokenBundle = {
   refreshToken: string
 }
 
-export type APIParams =
+type APIParams =
   | Record<string, string | number | string[] | number[]>
   | undefined
 
 export type Theme = 'light' | 'dark'
 
-export type Method = 'post' | 'put' | 'delete' | 'patch' | 'get'
+export type Method = 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'GET'
 
 export type MutationFnVariables = {
   url: string
   method?: Method
-  data?: Record<string, unknown>
+  data?: any
   params?: APIParams
   headers?: any
   disableParentOnError?: boolean
@@ -59,13 +59,6 @@ export type MutationFnVariables = {
 export type SidebarStatus = {
   isPermanentDrawerCollapsed: boolean
   isTemporaryDrawerCollapse: boolean
-}
-
-export type ValidationError = {
-  [key: string]: {
-    fieldNames: string[]
-    translationKey: string
-  }
 }
 
 export type RootProviderProps = PropsWithChildren & {
@@ -81,3 +74,5 @@ export type InitialLoadingContextType = {
   inittialLoading: boolean
   setInitialLoading: Dispatch<SetStateAction<boolean>>
 }
+
+export type Locale = 'ja' | 'en'

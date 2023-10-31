@@ -6,10 +6,20 @@
   "datePickerPlaceholder": "Select date",
   "timePickerPlaceholder": "Select time",
   "toastError": {
-    "U10001": "Example error message"
+    "U10007": "Example error message",
+    "U10008-email": "Example error message {email}",
+    "U10009-email,password": "Example error message {email} {password}",
+    "U10010-email,password": "Example error message"
   },
   "validationError": {
-    "U10004-email,password": "Email or password incorrect"
+    "U10004-email,password": "Email or password incorrect",
+    "U10041-email,password": "Email or password incorrect {email}",
+    "U10042-email,password": "Email or password incorrect {password}",
+    "U10043-email,password": "Email or password incorrect {email} {password}",
+    "U10044-email": "Email or password incorrect",
+    "U10045-email": "Email or password incorrect {email}",
+    "U10045-password": "Email or password incorrect",
+    "U10047-password": "Email or password incorrect {password}"
   },
   "sidebar": {
     "home": "Home",

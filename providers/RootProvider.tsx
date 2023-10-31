@@ -24,21 +24,14 @@ export default function RootProvider({
     const isDarkTheme = savedTheme === 'dark'
     return isDarkTheme ? 'dark' : 'light'
   })
-  const [inittialLoading, setInitialLoading] = useState<boolean>(true)
 
   const themeValue = useMemo(() => ({ theme, setTheme }), [theme])
-  const initialLoadingValue = useMemo(
-    () => ({ inittialLoading, setInitialLoading }),
-    [inittialLoading]
-  )
 
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <ThemeContext.Provider value={themeValue}>
-          <InitialLoadingContext.Provider value={initialLoadingValue}>
-            {children}
-          </InitialLoadingContext.Provider>
+          {children}
         </ThemeContext.Provider>
       </QueryClientProvider>
     </RecoilRoot>

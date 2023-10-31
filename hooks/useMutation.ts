@@ -1,5 +1,4 @@
 import { UseFormReturn } from 'react-hook-form'
-import Const from '@constants/common'
 import { useMutation as RQMutation } from '@tanstack/react-query'
 import { MutationFnVariables } from '@types'
 import Utils from '@utils'
@@ -26,22 +25,28 @@ export default function useMutation(options?: Partial<UseFormReturn<any>>) {
       const setError = options?.setError
 
       if (!setError) {
-        if (Const.TOAST_ERRORS.includes(errorCode)) {
-          enqueueSnackbar(
-            t(`common.toastError.${errorCode}`, { values: variables.data }),
-            { variant: 'error' }
-          )
+        const { toastTranslationKey, toastTranslationValues } =
+          Utils.getToastError(errorCode, variables.data)
+
+        if (toastTranslationKey) {
+          enqueueSnackbar(t(toastTranslationKey, toastTranslationValues), {
+            variant: 'error'
+          })
         }
         return
       }
 
-      const { fieldNames, translationKey } = Utils.getValidatorError(errorCode)
+      const {
+        fieldNames,
+        validatorTranslationKey,
+        validatorTranslationValues
+      } = Utils.getValidationError(errorCode, variables.data)
 
       if (fieldNames?.length) {
         fieldNames.forEach((field) => {
           setError(field, {
             type: 'manual',
-            message: t(translationKey, { values: variables.data })
+            message: t(validatorTranslationKey, validatorTranslationValues)
           })
         })
 
@@ -51,11 +56,13 @@ export default function useMutation(options?: Partial<UseFormReturn<any>>) {
         return
       }
 
-      if (Const.TOAST_ERRORS.includes(errorCode)) {
-        enqueueSnackbar(
-          t(`common.toastError.${errorCode}`, { values: variables.data }),
-          { variant: 'error' }
-        )
+      const { toastTranslationKey, toastTranslationValues } =
+        Utils.getToastError(errorCode, variables.data)
+
+      if (toastTranslationKey) {
+        enqueueSnackbar(t(toastTranslationKey, toastTranslationValues), {
+          variant: 'error'
+        })
       }
     }
   })
