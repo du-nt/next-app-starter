@@ -1,0 +1,24 @@
+{
+  "language": "言語",
+  "english": "英語",
+  "japanese": "日本語",
+  "loginSuccess": "ログインに成功しました",
+  "datePickerPlaceholder": "日付を選択",
+  "timePickerPlaceholder": "時間を選択",
+  "toastError": {
+    "U10007": "エラーメッセージの例",
+    "U10008-email": "エラー メッセージの例 {email}",
+    "U10009-email,password": "エラーメッセージの例 {email} {password}",
+    "U10010-email,password": "エラーメッセージの例"
+  },
+  "validationError": {
+    "U10004-email,password": "電子メールまたはパスワードが間違っています",
+    "U10041-email,password": "電子メールまたはパスワードが間違っています {email}",
+    "U10042-email,password": "電子メールまたはパスワードが間違っています {password}",
+    "U10043-email,password": "電子メールまたはパスワードが間違っています {email} {password}",
+    "U10044-email": "電子メールまたはパスワードが間違っています",
+    "U10045-email": "電子メールまたはパスワードが間違っています {email}",
+    "U10045-password": "電子メールまたはパスワードが間違っています",
+    "U10047-password": "電子メールまたはパスワードが間違っています {password}"
+  }
+}

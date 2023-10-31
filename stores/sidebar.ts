@@ -1,12 +1,12 @@
-import { atom } from "recoil";
-import { SidebarStatus } from "../types";
+import { SidebarStatus } from '@types'
+import { atom } from 'recoil'
 
 const sidebarState = atom<SidebarStatus>({
-  key: "sidebarState",
+  key: 'sidebarState',
   default: {
     isPermanentDrawerCollapsed: false,
-    isTemporaryDrawerCollapse: true,
-  },
-});
+    isTemporaryDrawerCollapse: true
+  }
+})
 
-export default sidebarState;
+export default sidebarState

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -38,18 +38,18 @@ export type TokenBundle = {
   refreshToken: string
 }
 
-export type APIParams =
+type APIParams =
   | Record<string, string | number | string[] | number[]>
   | undefined
 
 export type Theme = 'light' | 'dark'
 
-export type Method = 'post' | 'put' | 'delete' | 'patch' | 'get'
+export type Method = 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'GET'
 
 export type MutationFnVariables = {
   url: string
   method?: Method
-  data?: Record<string, unknown>
+  data?: any
   params?: APIParams
   headers?: any
   disableParentOnError?: boolean
@@ -61,9 +61,18 @@ export type SidebarStatus = {
   isTemporaryDrawerCollapse: boolean
 }
 
-export type ValidationError = {
-  [key: string]: {
-    fieldNames: string[]
-    translationKey: string
-  }
+export type RootProviderProps = PropsWithChildren & {
+  savedTheme?: string
 }
+
+export type ThemeContextType = {
+  theme: Theme
+  setTheme: Dispatch<SetStateAction<Theme>>
+}
+
+export type InitialLoadingContextType = {
+  inittialLoading: boolean
+  setInitialLoading: Dispatch<SetStateAction<boolean>>
+}
+
+export type Locale = 'ja' | 'en'
