@@ -36,16 +36,12 @@ export default function SidebarMenu({ isCollapsed }: Props) {
             const isSelected = pathname === path
 
             return (
-              <ListItem
-                key={title}
-                disablePadding
-                className="px-2"
-                onClick={handleCloseTemporaryDrawer}
-              >
+              <ListItem key={title} disablePadding className="px-2">
                 <ListItemButton
                   href={path}
                   component={NextLink}
                   selected={isSelected}
+                  onClick={handleCloseTemporaryDrawer}
                   className={cn({
                     'flex-col !px-0 !py-3': isCollapsed
                   })}
@@ -83,16 +79,12 @@ export default function SidebarMenu({ isCollapsed }: Props) {
                 const isSelected = pathname === path
 
                 return (
-                  <ListItem
-                    key={title}
-                    disablePadding
-                    className="px-2"
-                    onClick={handleCloseTemporaryDrawer}
-                  >
+                  <ListItem key={title} disablePadding className="px-2">
                     <ListItemButton
                       href={path}
                       component={NextLink}
                       selected={isSelected}
+                      onClick={handleCloseTemporaryDrawer}
                     >
                       <ListItemIcon>
                         {isSelected ? <ActiveIcon /> : <InactiveIcon />}
