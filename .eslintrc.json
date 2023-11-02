@@ -49,6 +49,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-shadow": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "unused-imports/no-unused-imports": "warn"
   }
 }

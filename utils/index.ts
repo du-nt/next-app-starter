@@ -34,28 +34,28 @@ const Utils = class Utils {
 
   static getValidationError = (errorCode: string | number, formValues: any) => {
     const locale = getCookie(Const.LOCALE_COOKIE_NAME) || Const.DEFAULT_LOCALE
-    const validatorErrorKey = this.getValidationErrorKeys(locale).find(
+    const validationErrorKey = this.getValidationErrorKeys(locale).find(
       (key) => key.split('-')[0] === `${errorCode}`
     )
 
-    if (!validatorErrorKey) return {}
+    if (!validationErrorKey) return {}
 
-    const mixedFieldName = validatorErrorKey.split('-')[1]
+    const mixedFieldName = validationErrorKey.split('-')[1]
 
     if (!mixedFieldName) return {}
 
     const fieldNames = mixedFieldName.split(',')
 
-    const validatorTranslationKey = `common.validationError.${validatorErrorKey}`
-    const validatorTranslationValues = fieldNames.reduce(
+    const validationTranslationKey = `common.validationError.${validationErrorKey}`
+    const validationTranslationValues = fieldNames.reduce(
       (acc, item) => ({ ...acc, [item]: formValues[item] }),
       {}
     )
 
     return {
-      validatorTranslationKey,
+      validationTranslationKey,
       fieldNames,
-      validatorTranslationValues
+      validationTranslationValues
     }
   }
 

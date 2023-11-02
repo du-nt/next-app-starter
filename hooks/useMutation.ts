@@ -38,15 +38,15 @@ export default function useMutation(options?: Partial<UseFormReturn<any>>) {
 
       const {
         fieldNames,
-        validatorTranslationKey,
-        validatorTranslationValues
+        validationTranslationKey,
+        validationTranslationValues
       } = Utils.getValidationError(errorCode, variables.data)
 
       if (fieldNames?.length) {
         fieldNames.forEach((field) => {
           setError(field, {
             type: 'manual',
-            message: t(validatorTranslationKey, validatorTranslationValues)
+            message: t(validationTranslationKey, validationTranslationValues)
           })
         })
 
