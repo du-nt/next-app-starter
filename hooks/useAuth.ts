@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { UseFormReturn } from 'react-hook-form'
-import inittialLoadingState from '@stores/initialLoading'
 import {
   useQuery,
   useQueryClient,
@@ -10,7 +9,6 @@ import { CurrentUser } from '@types'
 import Utils from '@utils'
 import { useTranslations } from 'next-intl'
 import { useSnackbar } from 'notistack'
-import { useRecoilState } from 'recoil'
 
 import useMutation from './useMutation'
 
@@ -22,8 +20,7 @@ export default function useAuth(
 
   const t = useTranslations()
   const { enqueueSnackbar } = useSnackbar()
-  const [inittialLoading, setInitialLoading] =
-    useRecoilState(inittialLoadingState)
+  const [inittialLoading, setInitialLoading] = useState<boolean>(true)
 
   const queryClient = useQueryClient()
   const { data: profile, refetch } = useQuery<CurrentUser | null>(

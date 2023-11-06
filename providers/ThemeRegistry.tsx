@@ -2,6 +2,7 @@
 
 import { PropsWithChildren } from 'react'
 import SnackbarCloseButton from '@components/atoms/SnackbarCloseButton'
+import Spinner from '@components/atoms/Spinner'
 import useAuth from '@hooks/useAuth'
 import useThemeContext from '@hooks/useThemeContext'
 import { darkTheme, lightTheme } from '@libs/theme'
@@ -17,11 +18,13 @@ import 'dayjs/locale/ja'
 export default function ThemeRegistry({ children }: PropsWithChildren) {
   const { theme } = useThemeContext()
   const locale = useLocale()
-  useAuth({ enabled: true })
+  const { inittialLoading } = useAuth({ enabled: true })
 
   const snackbarAction = (snackbarKey: SnackbarKey) => (
     <SnackbarCloseButton snackbarKey={snackbarKey} />
   )
+
+  if (inittialLoading) return <Spinner />
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
