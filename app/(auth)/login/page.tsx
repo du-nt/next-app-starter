@@ -2,9 +2,7 @@
 
 import { MouseEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Spinner from '@components/atoms/Spinner'
 import { yupResolver } from '@hookform/resolvers/yup'
-import useAuth from '@hooks/useAuth'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -18,9 +16,12 @@ import InputAdornment from '@mui/material/InputAdornment'
 import Link from '@mui/material/Link'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import Validators from '@utils/validators'
 import NextLink from 'next/link'
 import { useSearchParams } from 'next/navigation'
+
+import Spinner from '@/components/atoms/Spinner'
+import useAuth from '@/hooks/useAuth'
+import Validators from '@/utils/validators'
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)

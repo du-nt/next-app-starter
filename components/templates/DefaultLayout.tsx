@@ -1,11 +1,12 @@
 import { PropsWithChildren } from 'react'
-import HideOnScroll from '@components/atoms/HideOnScroll'
-import BottomNavigationBar from '@components/organisms/BottomNavigationBar'
-import Footer from '@components/organisms/Footer'
-import Header from '@components/organisms/Header'
-import Sidebar from '@components/organisms/Sidebar'
-import cn from '@libs/cn'
 import { AppBar, Box, Theme, Toolbar, useMediaQuery } from '@mui/material'
+
+import HideOnScroll from '@/components/atoms/HideOnScroll'
+import BottomNavigationBar from '@/components/organisms/BottomNavigationBar'
+import Footer from '@/components/organisms/Footer'
+import Header from '@/components/organisms/Header'
+import Sidebar from '@/components/organisms/Sidebar'
+import cn from '@/libs/cn'
 
 export default function DefaultLayout({ children }: PropsWithChildren) {
   const tabletMatched = useMediaQuery<Theme>((theme) =>

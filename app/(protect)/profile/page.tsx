@@ -1,7 +1,8 @@
 'use client'
 
-import useAuth from '@hooks/useAuth'
 import { Box, Button, Typography } from '@mui/material'
+
+import useAuth from '@/hooks/useAuth'
 
 export default function ProfilePage() {
   const { logout } = useAuth()

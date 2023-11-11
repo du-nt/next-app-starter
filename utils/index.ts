@@ -1,6 +1,7 @@
-import Const from '@constants/common'
-import { Locale, TokenBundle } from '@types'
 import { getCookie } from 'cookies-next'
+
+import Const from '@/constants/common'
+import { Locale, TokenBundle } from '@/types'
 
 const Utils = class Utils {
   static storeTokens = (tokenBundle: TokenBundle) => {

@@ -5,10 +5,11 @@ import {
   useQueryClient,
   UseQueryOptions
 } from '@tanstack/react-query'
-import { CurrentUser } from '@types'
-import Utils from '@utils'
 import { useTranslations } from 'next-intl'
 import { useSnackbar } from 'notistack'
+
+import { CurrentUser } from '@/types'
+import Utils from '@/utils'
 
 import useMutation from './useMutation'
 

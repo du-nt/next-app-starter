@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Transition from '@components/atoms/Transition'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -14,6 +13,8 @@ import {
   Toolbar,
   Typography
 } from '@mui/material'
+
+import Transition from '@/components/atoms/Transition'
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)

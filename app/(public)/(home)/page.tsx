@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import ViteIcon from '@components/icons/ViteIcon'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Box, Link, TextField, Typography } from '@mui/material'
 import Button from '@mui/material/Button'
@@ -14,6 +13,8 @@ import { Dayjs } from 'dayjs'
 import Image from 'next/image'
 import NextLink from 'next/link'
 import { useTranslations } from 'next-intl'
+
+import ViteIcon from '@/components/icons/ViteIcon'
 
 export default function HomePage() {
   const [datePickerValue, setDatePickerValue] = useState<Dayjs | null>(null)

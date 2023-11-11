@@ -1,9 +1,10 @@
 import { UseFormReturn } from 'react-hook-form'
 import { useMutation as RQMutation } from '@tanstack/react-query'
-import { MutationFnVariables } from '@types'
-import Utils from '@utils'
 import { useTranslations } from 'next-intl'
 import { useSnackbar } from 'notistack'
+
+import { MutationFnVariables } from '@/types'
+import Utils from '@/utils'
 
 export default function useMutation(options?: Partial<UseFormReturn<any>>) {
   const { enqueueSnackbar } = useSnackbar()

@@ -1,6 +1,7 @@
-import Const from '@constants/common'
 import { getLocale } from 'i18n'
 import { NextRequest, NextResponse } from 'next/server'
+
+import Const from './constants/common'
 
 export function middleware(request: NextRequest) {
   const { locale, longLocale } = getLocale()
