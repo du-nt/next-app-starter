@@ -1,8 +1,9 @@
 import { PropsWithChildren } from 'react'
-import RootProvider from '@providers/RootProvider'
-import ThemeRegistry from '@providers/ThemeRegistry'
 import { getTranslations } from 'i18n'
 import { NextIntlClientProvider } from 'next-intl'
+
+import RootProvider from '@/providers/RootProvider'
+import ThemeRegistry from '@/providers/ThemeRegistry'
 
 import './globals.css'
 

@@ -1,10 +1,4 @@
 import { ChangeEvent } from 'react'
-import ThemeSwitch from '@components/atoms/ThemeSwitch'
-import LanguageSwitcher from '@components/molecules/LanguageSwitcher'
-import MobileMenu from '@components/molecules/MobileMenu'
-import useAuth from '@hooks/useAuth'
-import useSidebar from '@hooks/useSidebar'
-import useThemeContext from '@hooks/useThemeContext'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
   Box,
@@ -16,6 +10,13 @@ import {
 } from '@mui/material'
 import { setCookie } from 'cookies-next'
 import NextLink from 'next/link'
+
+import ThemeSwitch from '@/components/atoms/ThemeSwitch'
+import LanguageSwitcher from '@/components/molecules/LanguageSwitcher'
+import MobileMenu from '@/components/molecules/MobileMenu'
+import useAuth from '@/hooks/useAuth'
+import useSidebar from '@/hooks/useSidebar'
+import useThemeContext from '@/hooks/useThemeContext'
 
 export default function Header() {
   const { theme, setTheme } = useThemeContext()

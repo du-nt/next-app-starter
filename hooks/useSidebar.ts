@@ -1,6 +1,7 @@
 import { Theme, useMediaQuery } from '@mui/material'
-import sidebarState from '@stores/sidebar'
 import { useRecoilState } from 'recoil'
+
+import sidebarState from '@/stores/sidebar'
 
 export default function useSidebar() {
   const [sidebarStatus, setSidebarStatus] = useRecoilState(sidebarState)

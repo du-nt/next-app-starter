@@ -1,9 +1,10 @@
 import { SyntheticEvent, useState } from 'react'
-import Const from '@constants/common'
 import { AppBar, BottomNavigation, BottomNavigationAction } from '@mui/material'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+
+import Const from '@/constants/common'
 
 export default function BottomNavigationBar() {
   const t = useTranslations()

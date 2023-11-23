@@ -1,7 +1,8 @@
 import { QueryClient } from '@tanstack/react-query'
-import { MutationFnVariables } from '@types'
-import Utils from '@utils'
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+
+import { MutationFnVariables } from '@/types'
+import Utils from '@/utils'
 
 const apiDomain = 'https://api-dev.nidt-network.com'
 

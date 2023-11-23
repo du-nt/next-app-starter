@@ -1,9 +1,10 @@
 'use client'
 
 import { PropsWithChildren } from 'react'
-import EmptyLayout from '@components/templates/EmptyLayout'
-import useAuth from '@hooks/useAuth'
 import { redirect, useSearchParams } from 'next/navigation'
+
+import EmptyLayout from '@/components/templates/EmptyLayout'
+import useAuth from '@/hooks/useAuth'
 
 export default function RedirectHomeRoute({ children }: PropsWithChildren) {
   const { profile } = useAuth({ enabled: false })

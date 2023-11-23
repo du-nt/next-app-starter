@@ -1,6 +1,3 @@
-import Const from '@constants/common'
-import useSidebar from '@hooks/useSidebar'
-import cn from '@libs/cn'
 import {
   Box,
   Divider,
@@ -13,6 +10,10 @@ import {
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+
+import Const from '@/constants/common'
+import useSidebar from '@/hooks/useSidebar'
+import cn from '@/libs/cn'
 
 type Props = {
   isCollapsed: boolean

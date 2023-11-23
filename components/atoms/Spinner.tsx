@@ -1,7 +1,8 @@
 import { PropsWithChildren } from 'react'
-import cn from '@libs/cn'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
+
+import cn from '@/libs/cn'
 
 type Props = PropsWithChildren & {
   spinning?: boolean

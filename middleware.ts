@@ -1,6 +1,21 @@
-import Const from '@constants/common'
-import { getLocale } from 'i18n'
+import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
+
+import { DEFAULT_LOCALE, LOCALE_COOKIE_NAME, LOCALES } from './constants'
+import { Locale } from './types'
+
+export const getLocale = () => {
+  const cookieStore = cookies()
+  const theme = cookieStore.get('theme')?.value
+  const lang = cookieStore.get(LOCALE_COOKIE_NAME)?.value || DEFAULT_LOCALE
+
+  const isValidLocale = Object.keys(LOCALES).some((cur) => cur === lang)
+
+  const locale = isValidLocale ? lang : DEFAULT_LOCALE
+  const longLocale = LOCALES[locale as Locale]
+
+  return { locale, theme, longLocale }
+}
 
 export function middleware(request: NextRequest) {
   const { locale, longLocale } = getLocale()
@@ -19,7 +34,7 @@ export function middleware(request: NextRequest) {
   response.headers.set('X-NEXT-INTL-LOCALE', longLocale)
 
   // Set cookie to simulate correct response for `next-intl`
-  response.cookies.set(Const.LOCALE_COOKIE_NAME, locale)
+  response.cookies.set('NEXT_LOCALE', locale)
 
   return response
 }

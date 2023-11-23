@@ -1,5 +1,6 @@
-import { SidebarStatus } from '@types'
 import { atom } from 'recoil'
+
+import { SidebarStatus } from '@/types'
 
 const sidebarState = atom<SidebarStatus>({
   key: 'sidebarState',

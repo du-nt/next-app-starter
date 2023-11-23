@@ -1,5 +1,3 @@
-import en from '@messages/en'
-import ja from '@messages/ja'
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic'
 import HeadsetMicOutlinedIcon from '@mui/icons-material/HeadsetMicOutlined'
 import HistoryIcon from '@mui/icons-material/History'
@@ -10,6 +8,9 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch'
 import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'
 import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined'
+
+import en from '@/messages/en'
+import ja from '@/messages/ja'
 
 class Const {
   static get DRAWER_WIDTH() {
