@@ -4,7 +4,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { MutationFnVariables } from '@/types'
 import Utils from '@/utils'
 
-const apiDomain = 'https://api-dev.nidt-network.com'
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN
 
 let refreshTokenRequest: null | Promise<any> = null
 

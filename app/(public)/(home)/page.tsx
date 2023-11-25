@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { Box, Link, TextField, Typography } from '@mui/material'
+import { Box, Link, TextField, TextFieldProps, Typography } from '@mui/material'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import Stack from '@mui/material/Stack'
@@ -23,6 +23,26 @@ export default function HomePage() {
   const t = useTranslations()
 
   useQuery(['api/v1/events?limit=2&offset=0'])
+
+  const datePickerTextField = (params: TextFieldProps) => (
+    <TextField
+      {...params}
+      inputProps={{
+        ...params.inputProps,
+        placeholder: t('common.datePickerPlaceholder')
+      }}
+    />
+  )
+
+  const timePickerTextField = (params: TextFieldProps) => (
+    <TextField
+      {...params}
+      inputProps={{
+        ...params.inputProps,
+        placeholder: t('common.datePickerPlaceholder')
+      }}
+    />
+  )
 
   return (
     <div className="border shadow-xl border-gray-50 rounded-xl">
@@ -95,28 +115,16 @@ export default function HomePage() {
           <DatePicker
             value={datePickerValue}
             onChange={(newValue) => setDatePickerValue(newValue)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                inputProps={{
-                  ...params.inputProps,
-                  placeholder: t('common.datePickerPlaceholder')
-                }}
-              />
-            )}
+            slots={{
+              textField: datePickerTextField
+            }}
           />
           <TimePicker
             value={timePickerValue}
             onChange={(newValue) => setTimePickerValue(newValue)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                inputProps={{
-                  ...params.inputProps,
-                  placeholder: t('common.timePickerPlaceholder')
-                }}
-              />
-            )}
+            slots={{
+              textField: timePickerTextField
+            }}
           />
         </Stack>
 
