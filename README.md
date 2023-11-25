@@ -90,7 +90,7 @@ Start the server
   yarn dev
 ```
 
-Live demo: https://react-vite-starter-two.vercel.app/
+Live demo: https://next-app-starter-kappa.vercel.app/
 
 ```bash
   Account: mahoagray@gmail.com
